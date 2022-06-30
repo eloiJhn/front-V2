@@ -1,23 +1,16 @@
 import React from "react";
-import { render } from "react-dom";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import { Route, Routes } from "react-router-dom";
 import Champions from "./components/Champions";
 
+const Home = () => <h1>Home</h1>;
+const MissingPage = () => <h1>404</h1>;
 
-const BasicExample = () =>
-  <Router>
-    <div>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-      </ul>
+const App = () => (
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/champions" element={<Champions />} />
+    <Route element={<MissingPage />} />
+  </Routes>
+);
 
-      <hr />
-
-      <Route exact path="/" component={Champions} />
-    </div>
-  </Router>;
-
-render(<BasicExample />, document.getElementById("root"));
+export default App;
