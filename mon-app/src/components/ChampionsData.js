@@ -1,57 +1,23 @@
-import React from "react";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import BasicCard from "./ChampionsCard";
 
-function ChampionsData(props) {
+export default function ChampionsData(props) {
+  const { champions } = props;
 
-
-    const { champions } = props
-  
   return (
-  
-  <div>
-        <table>
-          <thead>
-            <tr>
-              <th>
-                id
-              </th>
-              <th>
-                nickname
-              </th>
-              <th>
-              powers
-              </th>
-              <th>
-              tools
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-            champions?.map((champion, i) => 
-            <tr>
-              <td key={champion?.id}>{champion?.id}</td>
-              <td key={champion?.nickname}>{champion?.nickname}</td>
-              <td key={champion?.nickname + i}>{
-                champion?.powers?.map((power) =>
-                <div key={power?.id}>
-                  <div>{power?.name}</div>
-                </div>
-                )
-              }</td>
-              <td key={i}>{
-                champion?.tools?.map((tool) =>
-                <div key={tool?.id}>
-                  <div>{tool?.name}</div>
-                </div>
-                )
-              }</td>
-              </tr>
-            
-            )
-            }
-            </tbody>
-        </table>
-      </div>
-    );
-        }
-export default ChampionsData
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={2}>
+        {champions?.map((champion) => {
+          return (
+            <Grid item xs={3}>
+              <ChampionsCard key={champion?.nickname} champion={champion}></ChampionsCard>
+            </Grid>
+          );
+        })}
+      </Grid>
+    </Box>
+  );
+}

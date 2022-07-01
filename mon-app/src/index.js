@@ -9,7 +9,7 @@ root.render(
   <Router>
     <div>
       <Link to="/">Go to Home</Link> <br />
-      <Link to="/champions">Go to About</Link> <br />
+      <Link to="/champions">Go to Champions</Link> <br />
       <Link to="/any-route">404 page</Link>
       <App />
     </div>
