@@ -17,7 +17,9 @@ function ChampionsData(props) {
               <th>
                 nickname
               </th>
+              <th>
               powers
+              </th>
               <th>
               tools
               </th>
@@ -25,15 +27,29 @@ function ChampionsData(props) {
           </thead>
           <tbody>
             {
-            champions.map((champion) => 
-            <tr key={champion.id}>
-              <td>{champion.nickname}</td>
-              <td>{champion.powers}</td>
-              <td>{champion.tools}</td>
+            champions?.map((champion, i) => 
+            <tr>
+              <td key={champion?.id}>{champion?.id}</td>
+              <td key={champion?.nickname}>{champion?.nickname}</td>
+              <td key={champion?.nickname + i}>{
+                champion?.powers?.map((power) =>
+                <div key={power?.id}>
+                  <div>{power?.name}</div>
+                </div>
+                )
+              }</td>
+              <td key={i}>{
+                champion?.tools?.map((tool) =>
+                <div key={tool?.id}>
+                  <div>{tool?.name}</div>
+                </div>
+                )
+              }</td>
               </tr>
+            
             )
             }
-          </tbody>
+            </tbody>
         </table>
       </div>
     );

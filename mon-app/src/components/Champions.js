@@ -4,11 +4,7 @@ import ChampionsData from "./ChampionsData";
 
 function Champions() {
 
-  const [appState, setAppState] = useState(
-    {
-      champions: null
-    }
-  );
+  const [appState, setAppState] = useState([])
   
   useEffect(() => {
     const headers = {
