@@ -1,16 +1,26 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./navigation/Navbar.js";
+import { Route, Routes, BrowserRouter, Link } from "react-router-dom"
+import Home from "./components/Home";
 import Champions from "./components/Champions";
+import Footer from "./components/Footer"
 
-const Home = () => <h1>Home</h1>;
-const MissingPage = () => <h1>404</h1>;
+function App() {
+  return (
+    <BrowserRouter>
+    <Navbar>
+      <Link to ="/">Home</Link> <br />
+      <Link to ="/champions">Champions</Link> <br />
+    </Navbar>
+   <Routes>
+    <Route path="/" element={<Home />}/>
+    <Route path="/champions" element={<Champions />}/>
+   </Routes>
+   <Footer></Footer>
+   </BrowserRouter>
 
-const App = () => (
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/champions" element={<Champions />} />
-    <Route element={<MissingPage />} />
-  </Routes>
+
 );
+};
 
 export default App;

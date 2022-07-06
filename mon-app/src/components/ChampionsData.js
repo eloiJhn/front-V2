@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import BasicCard from "./ChampionsCard";
+import ChampionsCard from "./ChampionsCard";
 
 export default function ChampionsData(props) {
   const { champions } = props;
